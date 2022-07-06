@@ -1,9 +1,13 @@
 
 
-# here we import the libraries that we will use
 import torch
 import torchvision
 import torchvision.transforms as transforms
+import torch.nn as nn 
+import torch.nn.functional as F
+import torch.optim as optim
+import matplotlib.pyplot as plt
+import numpy as np
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -25,9 +29,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=2,
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-# here we import additional libraries
-import matplotlib.pyplot as plt
-import numpy as np
+
 
 # we define the functions to show the images
 def imshow(img):
@@ -40,18 +42,16 @@ def imshow(img):
     plt.show()
 
 
-# here we get some random images to be able to train 
+# we get some random images to be able to train 
 dataiter = iter(trainloader)
 images, labels = dataiter.next()
 
-#  we show the images 
+
 imshow(torchvision.utils.make_grid(images))
 # we print labels which are in range of 2
 print(' '.join('%5s' % classes[labels[j]] for j in range(2)))
 
-# again we import some other libraries
-import torch.nn as nn 
-import torch.nn.functional as F
+
 
 
 class Net(nn.Module):
@@ -90,8 +90,7 @@ class Net(nn.Module):
 # here we init the network using the following
 net = Net()
 
-# here we import another class which will be used 
-import torch.optim as optim
+
 
 # cross-entropy loss is put into criterion
 criterion = nn.CrossEntropyLoss()
