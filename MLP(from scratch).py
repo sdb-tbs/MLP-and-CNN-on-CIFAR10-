@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-
-
-@author: s_tab
-"""
-
-
 
 
 from __future__ import print_function
-import numpy as np ## For numerical python
+import numpy as np
+import keras
+from keras.utils import np_utils
+import matplotlib.pyplot as plt
 np.random.seed(42)
 
 class Layer:
@@ -78,11 +73,7 @@ def grad_softmax_crossentropy(logits,reference_answers):
     
     return (- ones_for_answers + softmax) / logits.shape[0]
 
-# Commented out IPython magic to ensure Python compatibility.
-import keras
-from keras.utils import np_utils
-import matplotlib.pyplot as plt
-# %matplotlib inline
+
 
 def load_dataset(flatten=False):
     (X_train, y_train), (X_test, y_test) = keras.datasets.cifar10.load_data()
