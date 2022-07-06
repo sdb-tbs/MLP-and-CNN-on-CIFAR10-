@@ -1,12 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
 
-
-@author: s_tab
-"""
-
-
-#cd /path
 
 # here we import the libraries that we will use
 import torch
